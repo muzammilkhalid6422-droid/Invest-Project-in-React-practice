@@ -1,0 +1,675 @@
+/**
+* Template Name: Invent
+* Template URL: https://bootstrapmade.com/invent-bootstrap-business-template/
+* Updated: May 12 2025 with Bootstrap v5.3.6
+* Author: BootstrapMade.com
+* License: https://bootstrapmade.com/license/
+*/
+
+/*--------------------------------------------------------------
+# Font & Color Variables
+# Help: https://bootstrapmade.com/color-system/
+--------------------------------------------------------------*/
+/* Fonts */
+:root {
+  --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Poppins",  sans-serif;
+  --nav-font: "Raleway",  sans-serif;
+}
+
+/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
+:root { 
+  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
+  --default-color: #212529; /* Default color used for the majority of the text content across the entire website */
+  --heading-color: #32353a; /* Color for headings, subheadings and title throughout the website */
+  --accent-color: #5d57f4; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+  --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+}
+
+/* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
+:root {
+  --nav-color: #3a3939;  /* The default color of the main navmenu links */
+  --nav-hover-color: #5d57f4; /* Applied to main navmenu links when they are hovered over or active */
+  --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
+  --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+  --nav-dropdown-color: #3a3939; /* Used for navigation links of the dropdown items in the navigation menu. */
+  --nav-dropdown-hover-color: #5d57f4; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+}
+
+/* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
+
+.light-background {
+  --background-color: #f4f4f9;
+  --surface-color: #ffffff;
+}
+
+.dark-background {
+  --background-color: #060606;
+  --default-color: #ffffff;
+  --heading-color: #ffffff;
+  --surface-color: #252525;
+  --contrast-color: #ffffff;
+}
+
+/* Smooth scroll */
+:root {
+  scroll-behavior: smooth;
+}
+
+/*--------------------------------------------------------------
+# General Styling & Shared Classes
+--------------------------------------------------------------*/
+body {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  font-family: var(--default-font);
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+a:hover {
+  color: color-mix(in srgb, var(--accent-color), transparent 25%);
+  text-decoration: none;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--heading-color);
+  font-family: var(--heading-font);
+}
+
+/* PHP Email Form Messages
+------------------------------*/
+.php-email-form .error-message {
+  display: none;
+  background: #df1529;
+  color: #ffffff;
+  text-align: left;
+  padding: 15px;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.php-email-form .sent-message {
+  display: none;
+  color: #ffffff;
+  background: #059652;
+  text-align: center;
+  padding: 15px;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.php-email-form .loading {
+  display: none;
+  background: var(--surface-color);
+  text-align: center;
+  padding: 15px;
+  margin-bottom: 24px;
+}
+
+.php-email-form .loading:before {
+  content: "";
+  display: inline-block;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin: 0 10px -6px 0;
+  border: 3px solid var(--accent-color);
+  border-top-color: var(--surface-color);
+  animation: php-email-form-loading 1s linear infinite;
+}
+
+@keyframes php-email-form-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+/*--------------------------------------------------------------
+# Portfolio Details Section
+--------------------------------------------------------------*/
+.portfolio-details .portfolio-details-slider img {
+  width: 100%;
+}
+
+.portfolio-details .swiper-wrapper {
+  height: auto;
+}
+
+.portfolio-details .swiper-button-prev,
+.portfolio-details .swiper-button-next {
+  width: 48px;
+  height: 48px;
+}
+
+.portfolio-details .swiper-button-prev:after,
+.portfolio-details .swiper-button-next:after {
+  color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(0, 0, 0, 0.15);
+  font-size: 24px;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+.portfolio-details .swiper-button-prev:hover:after,
+.portfolio-details .swiper-button-next:hover:after {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 575px) {
+
+  .portfolio-details .swiper-button-prev,
+  .portfolio-details .swiper-button-next {
+    display: none;
+  }
+}
+
+.portfolio-details .swiper-pagination {
+  margin-top: 20px;
+  position: relative;
+}
+
+.portfolio-details .swiper-pagination .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background-color: color-mix(in srgb, var(--default-color), transparent 85%);
+  opacity: 1;
+}
+
+.portfolio-details .swiper-pagination .swiper-pagination-bullet-active {
+  background-color: var(--accent-color);
+}
+
+.portfolio-details .portfolio-info h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+.portfolio-details .portfolio-info h3:after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: var(--accent-color);
+  left: 0;
+  bottom: 0;
+}
+
+.portfolio-details .portfolio-info ul {
+  list-style: none;
+  padding: 0;
+  font-size: 15px;
+}
+
+.portfolio-details .portfolio-info ul li {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 15px;
+}
+
+.portfolio-details .portfolio-info ul strong {
+  text-transform: uppercase;
+  font-weight: 400;
+  color: color-mix(in srgb, var(--default-color), transparent 50%);
+  font-size: 14px;
+}
+
+.portfolio-details .portfolio-info .btn-visit {
+  padding: 8px 40px;
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  border-radius: 50px;
+  transition: 0.3s;
+}
+
+.portfolio-details .portfolio-info .btn-visit:hover {
+  background: color-mix(in srgb, var(--accent-color), transparent 20%);
+}
+
+.portfolio-details .portfolio-description h2 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.portfolio-details .portfolio-description p {
+  padding: 0;
+}
+
+.portfolio-details .portfolio-description .testimonial-item {
+  padding: 30px 30px 0 30px;
+  position: relative;
+  background: color-mix(in srgb, var(--default-color), transparent 97%);
+  margin-bottom: 50px;
+}
+
+.portfolio-details .portfolio-description .testimonial-item .testimonial-img {
+  width: 90px;
+  border-radius: 50px;
+  border: 6px solid var(--background-color);
+  float: left;
+  margin: 0 10px 0 0;
+}
+
+.portfolio-details .portfolio-description .testimonial-item h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 15px 0 5px 0;
+  padding-top: 20px;
+}
+
+.portfolio-details .portfolio-description .testimonial-item h4 {
+  font-size: 14px;
+  color: #6c757d;
+  margin: 0;
+}
+
+.portfolio-details .portfolio-description .testimonial-item .quote-icon-left,
+.portfolio-details .portfolio-description .testimonial-item .quote-icon-right {
+  color: color-mix(in srgb, var(--accent-color), transparent 50%);
+  font-size: 26px;
+  line-height: 0;
+}
+
+.portfolio-details .portfolio-description .testimonial-item .quote-icon-left {
+  display: inline-block;
+  left: -5px;
+  position: relative;
+}
+
+.portfolio-details .portfolio-description .testimonial-item .quote-icon-right {
+  display: inline-block;
+  right: -5px;
+  position: relative;
+  top: 10px;
+  transform: scale(-1, -1);
+}
+
+.portfolio-details .portfolio-description .testimonial-item p {
+  font-style: italic;
+  margin: 0 0 15px 0 0 0;
+  padding: 0;
+}
+
+/*--------------------------------------------------------------
+# Service Details Section
+--------------------------------------------------------------*/
+.service-details .service-main-image {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.service-details .service-main-image img {
+  width: 100%;
+  transition: transform 0.6s;
+}
+
+.service-details .service-main-image:hover img {
+  transform: scale(1.05);
+}
+
+.service-details .service-main-image .experience-badge {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  padding: 20px;
+  border-radius: 12px;
+  min-width: 120px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.service-details .service-main-image .experience-badge span {
+  font-size: 36px;
+  font-weight: 700;
+  display: block;
+  line-height: 1;
+}
+
+.service-details .service-main-image .experience-badge p {
+  margin: 0;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.service-details .service-main-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.service-details .service-main-content .section-header {
+  margin-bottom: 25px;
+}
+
+.service-details .service-main-content .section-header .section-subtitle {
+  display: inline-block;
+  padding: 8px 16px;
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+  color: var(--accent-color);
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.service-details .service-main-content .section-header h2 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .service-details .service-main-content .section-header h2 {
+    font-size: 28px;
+  }
+}
+
+.service-details .service-main-content .lead {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.service-details .service-main-content p {
+  color: color-mix(in srgb, var(--default-color), transparent 25%);
+  margin-bottom: 20px;
+}
+
+.service-details .service-benefits {
+  padding: 0;
+  list-style: none;
+  margin: 20px 0 0 0;
+}
+
+.service-details .service-benefits li {
+  padding: 12px 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.service-details .service-benefits li i {
+  color: var(--accent-color);
+  font-size: 20px;
+  margin-right: 15px;
+}
+
+.service-details .service-tabs {
+  margin-top: 80px;
+}
+
+.service-details .service-tabs .nav-tabs {
+  border: none;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 15px;
+  margin-bottom: 30px;
+  overflow-x: auto;
+  padding-bottom: 5px;
+}
+
+@media (max-width: 768px) {
+  .service-details .service-tabs .nav-tabs {
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+
+  .service-details .service-tabs .nav-tabs::-webkit-scrollbar {
+    height: 5px;
+  }
+
+  .service-details .service-tabs .nav-tabs::-webkit-scrollbar-thumb {
+    background: color-mix(in srgb, var(--default-color), transparent 80%);
+    border-radius: 10px;
+  }
+}
+
+.service-details .service-tabs .nav-tabs .nav-link {
+  border: none;
+  padding: 15px 25px;
+  border-radius: 50px;
+  color: var(--default-color);
+  font-weight: 600;
+  background: var(--surface-color);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+}
+
+.service-details .service-tabs .nav-tabs .nav-link i {
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+.service-details .service-tabs .nav-tabs .nav-link.active {
+  background: var(--accent-color);
+  color: var(--contrast-color);
+}
+
+.service-details .service-tabs .tab-content {
+  padding: 40px;
+  border-radius: 16px;
+  background: var(--surface-color);
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+}
+
+.service-details .service-tabs .tab-content h3 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: var(--heading-color);
+}
+
+.service-details .service-tabs .tab-content p {
+  color: color-mix(in srgb, var(--default-color), transparent 25%);
+}
+
+.service-details .service-tabs .tab-content .feature-item {
+  padding: 20px;
+  background: color-mix(in srgb, var(--background-color), transparent 50%);
+  border-radius: 12px;
+  height: 100%;
+  transition: transform 0.3s;
+}
+
+.service-details .service-tabs .tab-content .feature-item:hover {
+  transform: translateY(-5px);
+}
+
+.service-details .service-tabs .tab-content .feature-item i {
+  color: var(--accent-color);
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.service-details .service-tabs .tab-content .feature-item h4 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.service-details .service-tabs .tab-content .feature-item p {
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.service-details .service-testimonial {
+  margin-top: 80px;
+}
+
+.service-details .service-testimonial .testimonial-card {
+  padding: 40px;
+  border-radius: 16px;
+  background: var(--surface-color);
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+}
+
+.service-details .service-testimonial .testimonial-card .client-info {
+  text-align: center;
+}
+
+.service-details .service-testimonial .testimonial-card .client-info img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border: 5px solid var(--background-color);
+  margin-right: 20px;
+}
+
+@media (max-width: 767px) {
+  .service-details .service-testimonial .testimonial-card .client-info img {
+    margin: 0 auto 20px;
+  }
+}
+
+.service-details .service-testimonial .testimonial-card .client-info h4 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.service-details .service-testimonial .testimonial-card .client-info p {
+  color: color-mix(in srgb, var(--default-color), transparent 25%);
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.service-details .service-testimonial .testimonial-card .client-info .stars {
+  color: #FFD700;
+  font-size: 14px;
+}
+
+.service-details .service-testimonial .testimonial-card .quote {
+  position: relative;
+  padding-left: 30px;
+}
+
+.service-details .service-testimonial .testimonial-card .quote i {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 24px;
+  color: var(--accent-color);
+}
+
+.service-details .service-testimonial .testimonial-card .quote p {
+  font-style: italic;
+  font-size: 16px;
+  color: color-mix(in srgb, var(--default-color), transparent 15%);
+}
+
+.service-details .service-cta {
+  margin-top: 80px;
+  padding: 60px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--accent-color), transparent 10%), color-mix(in srgb, var(--accent-color), transparent 40%));
+  box-shadow: 0 10px 30px color-mix(in srgb, var(--accent-color), transparent 85%);
+}
+
+.service-details .service-cta h3 {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--contrast-color);
+  margin-bottom: 15px;
+}
+
+.service-details .service-cta p {
+  font-size: 18px;
+  color: var(--contrast-color);
+  opacity: 0.9;
+  margin-bottom: 30px;
+}
+
+.service-details .service-cta .btn-service {
+  display: inline-flex;
+  align-items: center;
+  background: var(--contrast-color);
+  color: var(--accent-color);
+  font-weight: 600;
+  padding: 15px 35px;
+  border-radius: 50px;
+  transition: all 0.3s;
+}
+
+.service-details .service-cta .btn-service i {
+  margin-left: 8px;
+  transition: transform 0.3s;
+}
+
+.service-details .service-cta .btn-service:hover {
+  background: var(--background-color);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.service-details .service-cta .btn-service:hover i {
+  transform: translateX(5px);
+}
+
+@media (max-width: 767px) {
+  .service-details .service-cta {
+    padding: 40px 20px;
+  }
+
+  .service-details .service-cta h3 {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 991px) {
+  .service-details .service-main-content {
+    margin-top: 30px;
+  }
+
+  .service-details .service-tabs {
+    margin-top: 50px;
+  }
+
+  .service-details .service-testimonial,
+  .service-details .service-cta {
+    margin-top: 50px;
+  }
+}
+
+@media (max-width: 767px) {
+  .service-details .client-info {
+    flex-direction: column;
+    margin-bottom: 30px;
+  }
+
+  .service-details .service-tabs .tab-content {
+    padding: 30px 20px;
+  }
+}
